@@ -1,0 +1,29 @@
+.wrapper {
+    max-height: 100px;
+}
+
+.wrapper:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+}
+
+.blue {
+    background: blue;
+    float: left;
+}
+
+.red {
+    background: red;
+    margin: auto;
+}
+
+.green {
+    background: green;
+    float: right;
+}
