@@ -93,4 +93,24 @@ button {
     padding-left: 10%;
 }
 
+@media only screen and (max-width: 700px) {
+    /* For mobile phones */
+    .icon {
+        /* vw = % of viewport width */
+        width: 70vw;
+        flex-direction: column;
+        height: 300px;
+    }
 
+    .icon img {
+        height: 120px;
+    }
+
+    .icon p {
+        font-size: 13px;
+        width: 60vw;
+        padding-left: 0px;
+        margin: 20px;
+        text-align: center;
+    }
+}
