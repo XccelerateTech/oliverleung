@@ -32,3 +32,12 @@ var word = function (x) {
     }
     return result;
 }
+
+// can also use: 
+// var mystr = String(numparam);
+// var myword = "";
+// var myArr = mystr.split("");
+// for (let word of myArr) {
+//    myword = myword + Decode[word];
+// }
+//return myword

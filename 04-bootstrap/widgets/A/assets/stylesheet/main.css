@@ -1,0 +1,202 @@
+body {
+    font-family: Merriweather, 'Helvetica Neue', Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, nav, a.btn, .word {
+    font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+section {
+    padding: 100px;
+}
+
+aside {
+    padding: 50px;
+    color: #ffffff;
+}
+
+div {
+    display: block;
+}
+
+h3 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.no-gutter > [class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.text-orange {
+    color: #f05f40;
+}
+
+/* Navbar */
+.navbar-nav {
+    flex-direction: row;
+}
+
+.nav-item {
+    padding: 15px;
+}
+
+.page-scroll {
+    color: rgba(255,255,255,.7) !important;
+    font-weight: 700;
+}
+
+.img-fluid {
+    display: block;
+}
+
+/* Jumbotron */
+.jumbotron {
+    background-image: url("../../../images/header.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 798px;
+    padding: 0 50px;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Linebreaks */
+
+hr {
+    max-width: 50px;
+    border-color: #f05f40;
+    border-width: 3px;
+}
+
+hr.light {
+    border-color: #eeeeee;
+}
+
+/* Background */
+
+.bg-orange {
+    background-color: #f05f40;
+    color: #ffffff;
+}
+
+.bg-black {
+    background-color: #222222;
+}
+
+/* Buttons */
+
+.btn {
+    border-radius: 30px;
+}
+
+.btn-default {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.btn-orange {
+    background-color: #f05f40;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Jumbotron fonts */
+
+.jumbotron h1 { 
+    font-size: 67px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.jumbotron p {
+    font-size: 18px;
+    color: rgba(255,255,255,.7);
+    margin-bottom: 50px;
+}
+
+/* Icons section */
+
+.icon-box {
+    margin: 20px auto 0;
+}
+
+.icon-box p {
+    margin-bottom: 0;
+}
+
+/* Portfolio */
+
+.portfolio-box {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    max-width: 650px;
+}
+
+.hint {
+    opacity: 0;
+    transition: opacity 0.5s;
+    background: #f05f40;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: #a9a9a9;
+}
+
+ .hint:hover {
+    opacity: 1;
+}
+
+.hint span.word {
+    display: block;
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* .no-padding h2 {
+    margin: 1.5rem 0;
+} */
+
+.no-padding h2::after {
+    display: none;
+}
+
+/* Aside */
+
+.aside-margin h2 {
+    margin: 0 auto 20px;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 760px) {
+    .jumbotron h1 {
+      font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .jumbotron h1 {
+      font-size: 30px;
+    }
+}
