@@ -1,6 +1,8 @@
 //Create key pairings using object property key:value pairs
 //“a” - 6 “b” - 1 “d” - 7 “e” - 4 “i” - 3 “l” - 2 “m” - 9 “n” - 8 “o” - 0 “t” - 5
 
+
+//  key-value pairs
 var Key = {
     "6":"a",
     "1":"b",

@@ -5,10 +5,10 @@ var letters = [
     // num is a string
 function transform(num) {
     
-    // split
-    var numArray = num.split("");
+    // split number string into an array
+    var numArray = num.split("");//.map(Number);
 
-    // sort
+    // sort into order
     var numSort = numArray.sort(function(first, second) {
       return first > second;
     })
