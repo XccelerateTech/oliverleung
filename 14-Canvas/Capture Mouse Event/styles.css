@@ -1,12 +1,42 @@
-.canvas{
-    border:1px black dotted;
-    position:absolute;
-    top:0px;
-    bottom:0px;
-    left:0px;
-    right:0px
+body {
+    margin: 0;
 }
 
-#canvas-draft{
+.canvas {
+    border:2px black dotted;
+    position: absolute;
+    /* margin: 100px auto; */
+    top:50px;
+    /* bottom:0px; */
+    left:50px;
+    /* right:0px; */
+}
+
+#canvas-draft {
     background-color: transparent;
+}
+
+.button {
+    /* position: absolute; */
+    z-index: 1000;
+}
+
+#left-panel {
+    position: absolute;
+    left: 0px;
+    top: 50px;
+    width: 50px;
+    height: 1000px;
+
+}
+
+#text_tool {
+    position: absolute;
+    border: 1px dashed black;
+    outline: 0;
+    display: none;
+
+    font: 10px Verdana;
+    overflow: hidden;
+    white-space: nowrap;
 }

@@ -5,9 +5,10 @@ class DrawingLine extends PaintFunction{
     }
     
     onMouseDown(coord,event){
-        this.context.strokeStyle = "#df4b26";
+        this.endDrawing = false;
+        this.context.strokeStyle = brush.color;
         this.context.lineJoin = "round";
-        this.context.lineWidth = 5;
+        this.context.lineWidth = brush.size;
         this.context.beginPath();
         this.context.moveTo(coord[0],coord[1]);
         this.draw(coord[0],coord[1]);
@@ -15,16 +16,30 @@ class DrawingLine extends PaintFunction{
     onDragging(coord,event){
         this.draw(coord[0],coord[1]);
     }
-
     onMouseMove(){}
-    onMouseUp(){}
-    onMouseLeave(){}
-    onMouseEnter(){}
+    onMouseUp(){
+        this.endDrawing = true;
+        canvasPush();
+    }
+    onMouseLeave(){
+        if(!this.endDrawing){
+            this.endDrawing = true;
+            canvasPush();
+        }
+    }
+    onMouseEnter(){
+        // if(!this.endDrawing){
+        //     canvasPush();
+        //     this.endDrawing = true;
+        // }
+    }
 
     draw(x,y){
+        // this.context.save();
         this.context.lineTo(x,y);
         this.context.moveTo(x,y);
         this.context.closePath();
-        this.context.stroke();    
+        this.context.stroke();
+        // this.context.restore();
     }
 }
