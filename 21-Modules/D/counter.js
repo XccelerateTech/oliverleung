@@ -5,6 +5,7 @@ class Timer extends EventEmitter {
         super();
     }
 
+    // here we are calling a method
     counter(number) {
         let i = 0
         const that = this;
