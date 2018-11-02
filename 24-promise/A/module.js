@@ -2,20 +2,21 @@
 
 const fs = require('fs');
 
-function readdir(path) {
+var readdir = function(path) {
     return new Promise((resolve, reject) => {
         fs.readdir(path, (err, files) => {
             if (err) {
                 reject(err);
             } else {
-                // show the contents of the directory in your filesystem
+                // show the contents of the directory in your filesystem, returning them into an array
                 resolve(files);
             }
         });
     });
 }
 
-function stat(path) {
+// we can use fs.stat to check file/directory
+var stat = function(path) {
     return new Promise((resolve, reject) => {
         // fs.stat(path, callback)
         fs.stat(path, (err, stats) => {
@@ -29,5 +30,11 @@ function stat(path) {
     });
 }
 
-module.exports = readdir();
-module.exports = stat();
+// This will not work. Can instead do module.exports.stat = (path) => {...}
+// module.exports = readdir();
+// module.exports = stat();
+
+module.exports = {
+    readdir,
+    stat
+}
