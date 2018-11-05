@@ -28,11 +28,10 @@ function traverseFolder(path) {
     // for the next call we need to set a new filePath
         for (let file of files) {
             const filePath = pathMod.join(path, file);
-            // call(back) the outputDirectory with the new path
+            // call(back) the outputDirectory with the new path for each file/folder
             outputDirectory(filePath);
+            // then we call the outputDirectory function to rerun the test - this will continuously loop until all files have been targeted
         };
-    // then we call the outputDirectory function to rerun the test - this will continuously loop until all files have been targeted
-
     }).catch((error) => {
         console.log(error);
     })
