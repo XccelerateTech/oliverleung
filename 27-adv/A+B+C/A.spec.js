@@ -45,8 +45,8 @@ describe("Obijuan and Anaquan duel testing", function () { // should use ES6 syn
         duel(fakeObi, fakeAna);
         // predefined conditions based on test scenario - technically cheating
         fakeAna.injure(fakeAna.health-10);
-            // we set the if(dead) statement to true
-        fakeAna.dead();
+            // we set the if(dead) statement to true - not sure this even needs to be called
+        // fakeAna.dead();
 
         expect(fakeAna.injure).toHaveBeenCalled();
         expect(fakeAna.injure).toHaveBeenCalledWith(fakeAna.health-10);
@@ -56,10 +56,13 @@ describe("Obijuan and Anaquan duel testing", function () { // should use ES6 syn
 
     it("checks whether Anaquan is saved by Darth Sidjesus after 5000 ms", function() {
         duel(fakeObi,fakeAna);
-        // console.log(fakeAna.health);
-        jasmine.clock().tick(4999);
-        expect(fakeAna.health).toEqual(100);
-        expect(fakeAna.power).toEqual(10);
+        fakeAna.health = -100;
+        console.log(fakeAna.health);
+        
+        jasmine.clock().tick(5001);
+        // test case values after timeout
+        expect(fakeAna.health).toEqual(800);
+        expect(fakeAna.power).toEqual(90);
+        console.log(fakeAna.health);
     })
-
 })
