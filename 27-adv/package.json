@@ -1,0 +1,12 @@
+{
+  "name": "27-adv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "NoteService.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

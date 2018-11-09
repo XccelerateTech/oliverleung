@@ -4,23 +4,25 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
-// const fileUpload = require('express-fileupload'); // conflicts with multer
+const fileUpload = require('express-fileupload'); // conflicts with multer
 const multer = require('multer');
 
 const app = express();
 
 ///////////////// multer storage /////////////////
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './files/')
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.originalname);
-    }   
-});
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, './files/')
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, file.originalname);
+//     }
+// });
 
-const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage });
+
+const upload = multer();
 
 // declare const for upload directory so we can access it later
 
@@ -33,7 +35,7 @@ const port = 8080;
 //////////////////////////////////////////////////
 
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(fileUpload()); // commented out whilst using multer
+app.use(fileUpload()); // commented out whilst using multer
 // middleware allowing access to uploaded files
 app.use(express.static('files'));
 // have to set path to /assets to be able to read css file with index in current location
@@ -46,23 +48,23 @@ let cache = {};
 
 // create promises to read and write files and store to our created cache
 // writeFile is a function taking name and body of the file and storing them
-function writeFile (name, body) {
-    return(new Promise((resolve, reject) => {
+function writeFile(name, body) {
+    return (new Promise((resolve, reject) => {
         fs.writeFile(uploadDir + path.sep + name, body, (err) => {
-            if(err) {
+            if (err) {
                 return reject(err);
             }
             resolve(name);
         });
-    // action following resolve - call readFile
+        // action following resolve - call readFile
     })).then(readFile);
 }
 
 // readFile takes file as parameter and searches files directory for the name of the file we are searching for
 function readFile(file) {
-    return(new Promise((resolve,reject) => {
-        fs.readFile(uploadDir + path.sep + file, (err,body) => {
-            if(err) {
+    return (new Promise((resolve, reject) => {
+        fs.readFile(uploadDir + path.sep + file, (err, body) => {
+            if (err) {
                 return reject(err);
             }
             resolve(body);
@@ -78,13 +80,13 @@ app.get('/', (req, res) => {
 });
 
 // get request to download file from cache
-app.get('/files/:name', (req, res)=> {
-    if(cache[req.params.name] == null){
+app.get('/files/:name', (req, res) => {
+    if (cache[req.params.name] == null) {
         cache[req.params.name] = readFile(req.params.name);
     }
     cache[req.params.name]
         .then((body) => res.send(body))
-        .catch((e)=> res.status(500).send(e.message));
+        .catch((e) => res.status(500).send(e.message));
 });
 
 // post request to send our file to the server
@@ -115,26 +117,26 @@ app.get('/files/:name', (req, res)=> {
 
 app.post('/upload', upload.single('filename'), (req, res) => {
 
-    if (!req.file) {
+    if (!req.files) {
         console.log("No file received");
         return res.send({
-          success: false
+            success: false
         });
-    
-      } else {
-        console.log('file received');
-        console.log(req.file);
 
-        let file = req.file.filename.name // files -> file
-        let data = req.file.filename.data // files -> file
+    } else {
+        console.log('file received');
+        console.log(req.files);
+
+        let file = req.files.filename.name // files -> file
+        let data = req.files.filename.data // files -> file
         cache[file] = writeFile(file, data);
-        cache[file].then(()=> res.send({success: true}))
-            .catch((e)=> res.status(500).send(e.message));
+        cache[file].then(() => res.send({ success: true }))
+            .catch((e) => res.status(500).send(e.message));
 
         // return res.send({
         //   success: true
         // })
-      }
+    }
 });
 
 // app.listen(8080);
