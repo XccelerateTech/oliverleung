@@ -1,9 +1,30 @@
+h1 {
+    text-align: center;
+    margin-top: 80px;
+    font-family: 'Lato';
+}
+
+#rainbow {
+  
+    /* Font options */
+   /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
+   
+    /* Chrome, Safari, Opera */
+   -webkit-animation: rainbow 3s infinite; 
+   
+   /* Internet Explorer */
+   -ms-animation: rainbow 3s infinite;
+   
+   /* Standar Syntax */
+   animation: rainbow 3s infinite; 
+ }
+
 .container {
     /* background-color: blue; */
     /* to fix the excess width, we set the width accordingly */
     width: 366px;
     height:366px;
-    margin: 150px auto 0 auto;
+    margin: 80px auto 0 auto;
 }
 
 .row {
@@ -35,3 +56,38 @@
 .O {
     background-color: rgba(255, 0, 0, 0.5);
 }
+
+/* Rainbow */
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes rainbow{
+    0%{color: orange;}	
+    10%{color: purple;}	
+      20%{color: red;}
+      40%{color: yellow;}
+      60%{color: green;}
+      100%{color: blue;}
+      100%{color: orange;}	
+  }
+  
+  /* Internet Explorer */
+  @-ms-keyframes rainbow{
+    0%{color: orange;}	
+    10%{color: purple;}	
+      20%{color: red;}
+      40%{color: yellow;}
+      60%{color: green;}
+      100%{color: blue;}
+      100%{color: orange;}	
+  }
+  
+  /* Standar Syntax */
+  @keyframes rainbow{
+    0%{color: orange;}	
+    10%{color: purple;}	
+      20%{color: red;}
+      40%{color: yellow;}
+      60%{color: green;}
+      100%{color: blue;}
+      100%{color: orange;}
+  }

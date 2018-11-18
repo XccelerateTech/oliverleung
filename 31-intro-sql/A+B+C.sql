@@ -15,12 +15,12 @@ DROP TABLE stock;
 -- C
 
 CREATE TABLE employee (
-fruits(# employee_id SERIAL primary key,
-fruits(# first_name VARCHAR(255),
-fruits(# last_name VARCHAR(255),
-fruits(# salary INTEGER,
-fruits(# contract_length smallint
-fruits(# );
+employee_id SERIAL primary key,
+first_name VARCHAR(255),
+last_name VARCHAR(255),
+salary INTEGER,
+contract_length smallint
+);
 
 INSERT INTO employee (first_name,last_name,salary,contract_length) VALUES ('Steven','King',10000,3);
 INSERT INTO employee (first_name,last_name,salary,contract_length) VALUES ('Neena','Kochhar',8000,2);
