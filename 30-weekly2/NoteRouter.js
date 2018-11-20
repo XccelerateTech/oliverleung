@@ -57,7 +57,8 @@ class NoteRouter {
     }
 
     delete(req,res) {
-        return this.noteService.remove(req.param.id, req.auth.user)
+        // the link to the NoteService module method .remove()
+        return this.noteService.remove(req.params.id, req.auth.user)
             .then(() => 
                 this.noteService.list(req.auth.user)
             )

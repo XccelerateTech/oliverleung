@@ -45,7 +45,7 @@ app.get('/', function (req, res) {
         console.log(req.auth.user);
         // as we are using handlebars, we use res.render instead of res.send, looking for the index file of the views folder
         res.render('index', {
-            user: req.auth.user,
+            user: req.auth.user, // express-basic-auth syntax to access object containing the authorized credentials
             notes: notes
         });
     });

@@ -56,6 +56,9 @@ $(function() {
         beginSaving(evt.currentTarget);
 
         axios.delete('/api/notes/' + $(evt.currentTarget).data('id')).then(function(res) {
+            
+            console.log($(evt.currentTarget).data('id')); // check that the delete is targeting the correct note object
+            
             endSaving(evt.currentTarget);
             reloadNotes(res.data);
         }).catch(function(e) {
