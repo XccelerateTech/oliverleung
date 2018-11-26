@@ -1,0 +1,20 @@
+{
+  "name": "35-weekly3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "express-basic-auth": "^1.1.6",
+    "express-handlebars": "^3.0.0",
+    "knex": "^0.15.2",
+    "pg": "^7.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
