@@ -26,7 +26,7 @@ const knex = require('knex')(knexConfig); // connect to our database using knex
 
 // set up handlebars, as well as the view engine()
 app.engine('handlebars', hb({ defaultLayout: 'main' })); // handlebar setup syntax - this is our main page structure
-app.set('view engine', 'handlebars') // set view engine to handlebars
+app.set('view engine', 'handlebars');'' // set view engine to handlebars
 
 // set up our middleware
 app.use(express.static('public')); // express will serve this directory holding our stylesheet etc (ours static files)

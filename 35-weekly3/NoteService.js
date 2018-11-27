@@ -14,7 +14,7 @@ class NoteService {
 
     let query = this.knex // querying our table
                 .select('id')
-                .from('user') // link our method parameter to our table variable
+                .from('users') // link our method parameter to our table variable - table USERS not USER!
                 .where('users.username', user);
 
     return query.then((rows) => {
@@ -23,14 +23,14 @@ class NoteService {
         return this.knex.insert({ // building our query
           content: note,
           user_id: rows[0].id
-        }).into('notes');
+        }).into('notes'); // into our notes table
       } else { // only necessary for test cases
         throw new Error('Cannot update a note from a user that does not exist');
       }
     });
   }
 
-  list(user) { // this all messages of a specific user
+  list(user) { // list all messages of a specific user
     if (typeof user !== 'undefined') {
       let query = this.knex.select('notes.id', 'content')
                   .from('notes')
@@ -58,7 +58,7 @@ class NoteService {
             result[r.username] = []; // if user undefined, list empty results array
           }
           result[r.username].push({
-            id:r.id,
+            id: r.id,
             content: r.content
           });
         });
