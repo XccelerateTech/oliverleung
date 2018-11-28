@@ -39,7 +39,7 @@ class NoteService {
 
       return query.then((rows) => {
         console.log(rows)
-        return rows.map(r => ({
+        return rows.map(r => ({ // return these specific messages
           id: r.id,
           content: r.content
         }));
@@ -57,7 +57,7 @@ class NoteService {
           if(typeof result[r.username] === 'undefined') {
             result[r.username] = []; // if user undefined, list empty results array
           }
-          result[r.username].push({
+          result[r.username].push({ // push the message into the newly created array for previously undefined user
             id: r.id,
             content: r.content
           });
