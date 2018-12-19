@@ -1,12 +1,13 @@
 //passport.js
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('./bcrypt');
 const knex = require('knex')({
   client: 'postgresql',
   connection: {
-    database: "accelerate",
-    user: "accelerate",
-    password: "password"
+    database: "passport",
+    user: "ollie",
+    password: ""
   }
 });
 
@@ -61,7 +62,9 @@ module.exports = (app) => {
           password: hash
         };
         let userId = await knex('users').insert(newUser).returning('id');
-        newUser.id = userId;
+        console.log(userId); // knex returns our userId in array format
+        newUser.id = userId[0]; // assign our newUser the new unique id
+        console.log(newUser);
         done(null, newUser);
       } catch (err) {
         done(err);

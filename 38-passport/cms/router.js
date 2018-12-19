@@ -12,7 +12,6 @@ module.exports = (express) => {
         res.redirect('/login');
     }
 
-
     router.get('/secret',  isLoggedIn, (req, res) => {
         res.send('Here you go, a secret');
     });
