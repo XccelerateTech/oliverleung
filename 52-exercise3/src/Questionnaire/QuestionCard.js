@@ -4,7 +4,7 @@ class QuestionCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      response: null
+      response: ''
     }
   }
 
@@ -13,8 +13,8 @@ class QuestionCard extends Component {
     this.setState({
       response: input
     })
-    console.log('input', input)
-    console.log('response', this.state.response)
+    // console.log('input', input)
+    // console.log('response', this.state.response)
   }
 
   render() {

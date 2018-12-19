@@ -1,12 +1,12 @@
 import React, { Component } from 'react'; // import class based components
 import DisplayList from './DisplayList';
-import QuestionCard from './QuestionnaireCard';
+import QuestionCard from './QuestionCard';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+      name: 'Jailbait Questionnaire',
       list: [
         {
           id: 1, item: <QuestionCard comment="What's your name?"></QuestionCard>
@@ -20,6 +20,8 @@ class App extends Component {
       ],
     }
   }
+
+  // move handleClick to card component
 
   render() {
     return (

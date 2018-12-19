@@ -1,12 +1,13 @@
 import React from 'react';
 
-const DisplayList2 = (props) => {
+const DisplayList = (props) => {
   console.log(props)
   const listItems = props.list.map( l=>
-    <li className="list-group-item" key={l.id}>{l.item} {l.response}</li>)
+    <li className="list-group-item" key={l.id}>{l.item}</li>)
 
   return (
     <div>
+      <h1>{props.name}</h1>
       <ul className="list-group">
         {listItems} 
       </ul>
@@ -14,4 +15,4 @@ const DisplayList2 = (props) => {
   )
 }
 
-export default DisplayList2;
+export default DisplayList;
