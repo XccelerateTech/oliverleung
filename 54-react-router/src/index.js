@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import CurrencyConverter from './CurrencyConverter/CurrencyConverter';
-// import Clock from './Clock/Clock';
-// import App from './ShoppingList/ShoppingList';
-import App from './NameCard/UserList';
-
+import { BrowserRouter } from 'react-router-dom';
+import App from './ShoppingAppRouter/App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// notice how the BrowserRouter wraps our App
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>, 
+  document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -20,9 +20,9 @@ class QuestionCard extends Component {
   render() {
     return (
       <div className="card text-white bg-primary mb-3" >
-        <h3 className="card-title">{this.props.id}</h3>
+        {/* <h3 className="card-title">{this.props.id}</h3> */}
         <div className="card-body">
-          <p className="card-text">Question: {this.props.comment}</p>
+          <h5 className="card-text">Question: {this.props.comment}</h5>
           <p>{this.state.response}</p>
           <button onClick={this.handleClick}>Answer</button>
         </div>

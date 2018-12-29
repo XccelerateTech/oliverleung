@@ -21,7 +21,7 @@ class App extends Component {
     }
   }
 
-  // move handleClick to card component
+  // move handleClick to card component - want the button + response <p> to render with each card
 
   render() {
     return (
