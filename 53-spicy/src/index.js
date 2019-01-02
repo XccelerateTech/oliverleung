@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import CurrencyConverter from './CurrencyConverter/CurrencyConverter';
 // import Clock from './Clock/Clock';
-// import App from './ShoppingList/ShoppingList';
-import App from './NameCard/UserList';
+import App from './ShoppingList/ShoppingList';
+// import App from './NameCard/UserList';
 
 import * as serviceWorker from './serviceWorker';
 
